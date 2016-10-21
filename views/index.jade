@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  .error.hidden The app got all jacked up. Refresh and try again plz.
+    span.close-error &times;
+  
+  span.svg-wrap
+    include svg/camera.svg
+    
+  h1 Generate tags for an image
+  p Paste an image URL to get started.
+  
+  input(type='text' placeholder="Photo here plz.")
+  button submit
+  
+  .tagging-area
+    .loading.hidden
+      .spinner
+        .bounce1
+        .bounce2
+        .bounce3
+          
+    .tagging-content.hidden
+      .editable
+        textarea.hashtag-textarea(onclick='this.focus();this.select()')
+        .photo-tags
