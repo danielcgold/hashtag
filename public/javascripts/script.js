@@ -19,7 +19,7 @@ photo.requestClarifaiPrediction = function(input) {
 
       $('.loading').addClass('hidden');
       $('.tagging-content').removeClass('hidden');
-      $('.photo-tags').html(photo.tags);
+      $('.photo-tag-data').html(photo.tags);
       $('.tagging-content').append('<img src="' + input + '">');
     },
     function(err) {
@@ -32,16 +32,16 @@ photo.getPhotoURL = function() {
   photo.url = $('input').val();
 };
 
-photo.addText = function(word) {
-  $('textarea').val($('textarea').val() + word);
-};
-
 photo.closerError = function() {
   $('.error').addClass('hidden');
   $('.loading').addClass('hidden');
 }
 
 $(function(){
+  $('form').on('submit', function(){
+    return false;
+  });
+
   $('button').on('click', function(){
     $('.loading').removeClass('hidden');
     photo.getPhotoURL();
@@ -49,10 +49,14 @@ $(function(){
   });
 
   $(document).on('click', '.hashtag', function(){
-    photo.addText($(this).text() + ' ');
+    $(this).toggleClass('selected');
+    var allHashtags = $('.selected').text();
+    $('.fakeclip').removeClass('hidden').val(allHashtags.replace(/#/g, ' #'));
   });
 
   $('.close-error').on('click', function(){
     photo.closerError();
   });
+
+  new Clipboard('.add-to-clip');
 });

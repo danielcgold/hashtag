@@ -3,8 +3,7 @@
 }
 
 body,
-input,
-textarea {
+input {
   font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
 }
 
@@ -35,19 +34,26 @@ svg path {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .hashtag {
   display: inline-block;
   padding: 10px;
-  background: #fff;
+  border: solid 1px;
+  color: #999;
   margin: 5px;
   cursor: pointer;
+  font-family: Courier, "Lucida Console", monospace;
+}
+
+.hashtag.selected,
+.hashtag.selected:hover {
+  color: #000;
 }
 
 .hashtag:hover {
-  color: #999;
+  color: #666;
 }
 
 .error {
@@ -137,22 +143,8 @@ button {
   }
 }
 
-textarea {
-  display: block;
-  width: 100%;
-  max-width: 500px;
-  margin: auto;
-  border: solid 1px #000;
-  min-height: 150px;
-  padding: 20px;
-  font-size: 16px;
-}
-
 .photo-tags {
-  max-width: 500px;
   margin: 20px auto 0;
-  background: #efefef;
-  padding: 15px;
 }
 
 img {
@@ -164,25 +156,38 @@ img {
   margin-top: 60px;
 }
 
-@media (min-width: 700px) {
-  .editable {
+.add-to-clip {
+  cursor: pointer;
+  text-decoration: underline;
+  display: table;
+  margin: 20px auto;
+}
+
+.fakeclip {
+  margin-top: 30px;
+}
+
+@media (min-width: 980px) {
+  .add-to-clip {
+    margin: 20px 0;
+  }
+
+  .tagging-content {
     display: flex;
     max-width: 980px;
     margin: auto;
   }
 
-  textarea {
-    margin: 0;
-    width: 50%;
-  }
-
   .photo-tags {
     margin: 0;
     width: 50%;
+    text-align: left;
   }
 
   img {
-    max-width: 980px;
     margin-top: 0;
+    width: 50%;
+    height: 50%;
+    max-width: none;
   }
 }

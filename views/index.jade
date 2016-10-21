@@ -10,8 +10,9 @@ block content
   h1 Generate tags for an image
   p Paste an image URL to get started.
   
-  input(type='text' placeholder="Photo here plz.")
-  button submit
+  form
+    input(type='text' placeholder="Photo here plz." autofocus)
+    button submit
   
   .tagging-area
     .loading.hidden
@@ -21,6 +22,8 @@ block content
         .bounce3
           
     .tagging-content.hidden
-      .editable
-        textarea.hashtag-textarea(onclick='this.focus();this.select()')
-        .photo-tags
+      .photo-tags
+        .photo-tag-data
+        a.add-to-clip(data-clipboard-target=".fakeclip") Add to clipboard
+
+  input.fakeclip.hidden(type="text")
