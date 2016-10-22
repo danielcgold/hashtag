@@ -11,7 +11,7 @@ block content
   p Paste an image URL to get&nbsp;started.
   
   form(autocomplete="on")
-    input(type="url" pattern="https?://.+" required name="photo-url" id="photo-url" placeholder="Photo here plz." autofocus)
+    input(type="url" pattern="https?://.+" required name="photo-url" id="photo-url" placeholder="Photo URL here plz." autofocus)
     button Find tags
   
   .tagging-area
@@ -25,5 +25,8 @@ block content
       .photo-tags
         .photo-tag-data
         a.add-to-clip(data-clipboard-target=".fakeclip") Add to clipboard
-          span.copied.hidden Copied!
+           span.copied.hidden Copied!
           input.fakeclip.hidden(type="text")
+
+  a.contribute(href="https://github.com/danielcgold/hashtag")
+    include svg/github.svg

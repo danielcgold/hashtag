@@ -20,7 +20,7 @@ photo.requestClarifaiPrediction = function(input) {
       $('.loading').addClass('hidden');
       $('.tagging-content').removeClass('hidden');
       $('.photo-tag-data').html(photo.tags);
-      $('.tagging-content').append('<img src="' + input + '">');
+      $('.tagging-content').append('<img class="taggable-image" src="' + input + '">');
     },
     function(err) {
       $('.error').removeClass('hidden');
@@ -42,9 +42,17 @@ $(function(){
     return false;
   });
 
-  $('button').one('click', function(){
+  $('button').on('click', function(){
     $('.loading').removeClass('hidden');
-    $('button').addClass('spent');
+
+    // Reset everything on resubmission
+    photo.tags = [];
+    $('.tagging-content').addClass('hidden');
+    $('.photo-tag-data').html('');
+    $('.taggable-image').remove();
+    $('.fakeclip').val('');
+
+    // Get the tags
     photo.getPhotoURL();
     photo.requestClarifaiPrediction(photo.url);
   });

@@ -112,10 +112,6 @@ button {
   outline: 0;
 }
 
-button.spent {
-  background: #444;
-}
-
 .spinner {
   margin: 100px auto 0;
   width: 70px;
@@ -222,4 +218,13 @@ img {
     height: 50%;
     max-width: none;
   }
+}
+
+.contribute {
+  margin-top: 100px;
+  display: inline-block;
+}
+
+.contribute path {
+  fill: #000;
 }
