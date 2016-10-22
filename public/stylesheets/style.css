@@ -12,6 +12,14 @@ body {
   padding: 30px;
 }
 
+h1 {
+  margin-bottom: 10px;
+}
+
+p {
+  margin-top: 0;
+}
+
 .svg-wrap {
   display: block;
   width: 100px;
@@ -41,10 +49,11 @@ svg path {
   display: inline-block;
   padding: 10px;
   border: solid 1px;
-  color: #999;
+  color: #d0d0d0;
   margin: 5px;
   cursor: pointer;
   font-family: Courier, "Lucida Console", monospace;
+  margin-left: 0;
 }
 
 .hashtag.selected,
@@ -53,7 +62,7 @@ svg path {
 }
 
 .hashtag:hover {
-  color: #666;
+  color: #999;
 }
 
 .error {
@@ -77,7 +86,7 @@ input {
   padding: 10px;
   width: 100%;
   max-width: 500px;
-  margin-top: 70px;
+  margin-top: 40px;
   font-size: 16px;
   border: solid 1px #000;
 }
@@ -99,6 +108,12 @@ button {
   position: relative;
   top: -1px;
   cursor: pointer;
+  margin-left: 10px;
+  outline: 0;
+}
+
+button.spent {
+  background: #444;
 }
 
 .spinner {
@@ -108,38 +123,40 @@ button {
 }
 
 .spinner > div {
-  width: 18px;
-  height: 18px;
+  width: 12px;
+  height: 12px;
   background-color: #000;
-
-  border-radius: 100%;
+  margin: 0 2px;
+  border-radius: 50%;
   display: inline-block;
-  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  -webkit-animation: sk-bouncedelay 1s infinite ease-in-out both;
+  animation: sk-bouncedelay 1s infinite ease-in-out both;
 }
 
 .spinner .bounce1 {
-  -webkit-animation-delay: -0.32s;
-  animation-delay: -0.32s;
+  -webkit-animation-delay: -0.25s;
+  animation-delay: -0.25s;
 }
 
 .spinner .bounce2 {
-  -webkit-animation-delay: -0.16s;
-  animation-delay: -0.16s;
+  -webkit-animation-delay: -0.125s;
+  animation-delay: -0.125s;
 }
 
 @-webkit-keyframes sk-bouncedelay {
-  0%, 80%, 100% { -webkit-transform: scale(0) }
-  40% { -webkit-transform: scale(1.0) }
+  0%, 80%, 100% { -webkit-transform: scale(.75); }
+  40% { -webkit-transform: scale(1.0); opacity: 1;}
 }
 
 @keyframes sk-bouncedelay {
   0%, 80%, 100% {
-    -webkit-transform: scale(0);
-    transform: scale(0);
+    -webkit-transform: scale(.75);
+    transform: scale(.75);
+    opacity: 0;
   } 40% {
     -webkit-transform: scale(1.0);
     transform: scale(1.0);
+    opacity: 1;
   }
 }
 
@@ -161,10 +178,25 @@ img {
   text-decoration: underline;
   display: table;
   margin: 20px auto;
+  position: relative;
 }
 
 .fakeclip {
-  margin-top: 30px;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: -48px;
+  z-index: -1;
+}
+
+.copied {
+  position: absolute;
+  left: calc(100% + 10px);
+  padding: 5px;
+  top: -2px;
+  background: #000;
+  font-size: 12px;
+  color: #fff;
 }
 
 @media (min-width: 980px) {

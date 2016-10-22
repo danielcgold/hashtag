@@ -42,8 +42,9 @@ $(function(){
     return false;
   });
 
-  $('button').on('click', function(){
+  $('button').one('click', function(){
     $('.loading').removeClass('hidden');
+    $('button').addClass('spent');
     photo.getPhotoURL();
     photo.requestClarifaiPrediction(photo.url);
   });
@@ -58,5 +59,12 @@ $(function(){
     photo.closerError();
   });
 
-  new Clipboard('.add-to-clip');
+  var clipboard = new Clipboard('.add-to-clip');
+  clipboard.on('success', function() {
+    $('.copied').removeClass('hidden');
+    window.setTimeout(
+      function(){
+        $('.copied').addClass('hidden');
+      }, 3000);
+  });
 });
