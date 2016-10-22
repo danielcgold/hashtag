@@ -7,4 +7,4 @@ Currenty, there's only support for image URLs
 * localhost:3000
 
 ### Contributing
-¯\_(ツ)_/¯ you do you
+`¯\_(ツ)_/¯` you do you
